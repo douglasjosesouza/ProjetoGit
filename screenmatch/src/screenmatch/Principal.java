@@ -2,6 +2,7 @@ package screenmatch;
 
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
+import br.com.alura.screenmatch.calculos.CalculdoraDeTempo;
 
 public class Principal {
 	public static void main(String[] args) {
@@ -9,7 +10,12 @@ public class Principal {
 		meuFilme.setNome("Alien o oitavo passageiro");
 		meuFilme.setAnoDeLancamento(1970);
 		meuFilme.setDuracaoEmMinutos(180); 
-		System.out.println("Duracao do filme "+meuFilme.getDuracaoEmMinutos());
+		//System.out.println("Duracao do filme "+meuFilme.getDuracaoEmMinutos());
+		
+		Filme outroFilme = new Filme();
+		outroFilme.setNome("O lobo de Wall Street");
+		outroFilme.setAnoDeLancamento(2022);
+		outroFilme.setDuracaoEmMinutos(122);
 		
 		
 		meuFilme.exibeFichaTecnica();
@@ -30,6 +36,14 @@ public class Principal {
 		serie.setEpisodiosPorTemporada(10);
 		serie.setMinutosPorEpisodio(50);
 		System.out.println("Duração do filme..." + serie.getDuracaoEmMinutos());
+		
+		CalculdoraDeTempo calculadora = new CalculdoraDeTempo();
+		calculadora.inclui(meuFilme);
+		calculadora.inclui(outroFilme);
+		System.out.println(calculadora.getTempoTotal());
+		
+		
+			
 		
 
 	}
